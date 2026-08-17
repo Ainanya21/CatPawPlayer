@@ -3,10 +3,10 @@
 # 🐾 猫爪播放器 (CatPawPlayer)
 ### 现代化 Windows 11 影视聚合与 4K 超清硬件加速播放平台
 
-[![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078D6?style=flat-square&logo=windows)](https://github.com/)
-[![Framework](https://img.shields.io/badge/UI-WinUI%203%20%2F%20Windows%20App%20SDK%201.6-8860D0?style=flat-square&logo=microsoft)](https://github.com/)
+[![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078D6?style=flat-square&logo=windows)](https://github.com/Ainanya21/CatPawPlayer)
+[![Framework](https://img.shields.io/badge/UI-WinUI%203%20%2F%20Windows%20App%20SDK%201.6-8860D0?style=flat-square&logo=microsoft)](https://github.com/Ainanya21/CatPawPlayer)
 [![.NET](https://img.shields.io/badge/.NET-8.0%20LTS-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com/)
-[![MPV](https://img.shields.io/badge/Engine-Yaozhi--MPV%20%2B%20Offline%20HLS-FF5722?style=flat-square)](https://github.com/)
+[![MPV](https://img.shields.io/badge/Engine-Yaozhi--MPV%20%2B%20Offline%20HLS-FF5722?style=flat-square)](https://github.com/Ainanya21/CatPawPlayer)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
 [**下载体验**](#-下载与安装) • [**核心功能**](#-核心亮点) • [**配置中心与网盘**](#-配置中心与网盘授权) • [**本地编译构建**](#-本地编译与开发) • [**使用指南**](#-使用指南)
@@ -35,7 +35,7 @@
 
 ## 📦 下载与安装
 
-进入 [**Releases 发布页面**](https://github.com/) 下载最新安装包：
+进入 [**Releases 发布页面**](https://github.com/Ainanya21/CatPawPlayer/releases) 下载最新安装包：
 
 | 文件类型 | 说明 | 适用场景 |
 | :--- | :--- | :--- |
@@ -102,7 +102,7 @@ graph TD
 
 ```bash
 # 1. 克隆代码仓库
-git clone https://github.com/your-username/CatPawPlayer.git
+git clone https://github.com/Ainanya21/CatPawPlayer.git
 cd CatPawPlayer
 
 # 2. 编译主程序 (Release)
