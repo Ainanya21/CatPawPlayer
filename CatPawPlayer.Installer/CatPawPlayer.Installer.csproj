@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Assets\AppIcon.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>CatPawPlayer_v1.0.0_Setup</AssemblyName>
+    <RootNamespace>CatPawPlayer.Installer</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+
+    <!-- Version Metadata -->
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Product>猫爪播放器 安装程序</Product>
+    <Company>CatPaw Studio</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\dist\CatPawPlayer_v1.0.0_Portable.zip">
+      <Link>payload.zip</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\AppIcon.ico">
+      <Link>AppIcon.ico</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\CatPawPlayer.WinUI\Assets\AppIcon.png">
+      <Link>AppIcon.png</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

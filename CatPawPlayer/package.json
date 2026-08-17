@@ -1,0 +1,53 @@
+{
+  "name": "catpaw-player",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && npm run build:electron",
+    "build:electron": "tsc electron/main.ts electron/preload.ts electron/catVodEngine.ts electron/proxyServer.ts --outDir dist-electron --module CommonJS --target ES2022 --skipLibCheck --moduleResolution node --allowSyntheticDefaultImports true",
+    "preview": "vite preview",
+    "electron:dev": "concurrently \"vite\" \"npm run build:electron && electron .\"",
+    "dist": "npm run build && electron-builder --win"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "clsx": "^2.1.1",
+    "fastify": "^4.28.1",
+    "hls.js": "^1.5.17",
+    "lucide-react": "^0.344.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^9.1.0",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  },
+  "build": {
+    "appId": "com.catpaw.player",
+    "productName": "CatPawPlayer",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*"
+    ],
+    "win": {
+      "target": ["portable", "nsis"]
+    }
+  }
+}

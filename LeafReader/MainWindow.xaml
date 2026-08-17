@@ -1,0 +1,324 @@
+<Window x:Class="LeafReader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="叶读 - 本地电子书阅读器" Height="780" Width="1180" MinWidth="860" MinHeight="580"
+        WindowStartupLocation="CenterScreen"
+        Background="#FFF7F7F7" UseLayoutRounding="True">
+
+  <Grid x:Name="RootGrid">
+    <!-- Main Window Layout -->
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <!-- Top Navigation Bar -->
+    <Border x:Name="TopBar" Grid.Row="0" Background="#FFF7F7F7" BorderBrush="{StaticResource SubtleBorderBrush}" BorderThickness="0,0,0,1" Padding="12,8">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="0">
+          <Border Width="28" Height="28" Background="{StaticResource AccentBrush}" CornerRadius="6" Margin="0,0,10,0">
+            <TextBlock Text="&#xE8B9;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Foreground="White" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+          </Border>
+          <TextBlock Text="叶读" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Foreground="{StaticResource PrimaryTextBrush}" />
+          <TextBlock Text="LeafReader" FontSize="12" Foreground="{StaticResource SecondaryTextBrush}" VerticalAlignment="Center" Margin="8,0,0,0" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="2">
+          <Button x:Name="ImportButton" Click="ImportButton_Click" Style="{StaticResource PrimaryButtonStyle}" Margin="0,0,8,0">
+            <StackPanel Orientation="Horizontal">
+              <TextBlock Text="&#xE8E5;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Margin="0,0,6,0" VerticalAlignment="Center" />
+              <TextBlock Text="导入图书" VerticalAlignment="Center" />
+            </StackPanel>
+          </Button>
+
+          <Button x:Name="RecentFilterButton" Click="RecentFilterButton_Click" Style="{StaticResource IconButtonStyle}" ToolTip="最近阅读" Margin="0,0,4,0">
+            <TextBlock Text="&#xE823;" />
+          </Button>
+
+          <Button x:Name="ToggleThemeButton" Click="ToggleThemeButton_Click" Style="{StaticResource IconButtonStyle}" ToolTip="切至浅色/深色主题">
+            <TextBlock Text="&#xE708;" />
+          </Button>
+        </StackPanel>
+      </Grid>
+    </Border>
+
+    <!-- Main Content Area -->
+    <Grid Grid.Row="1">
+      <!-- Library View -->
+      <Grid x:Name="LibraryView" Visibility="Visible">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="24,20,24,12">
+          <TextBlock Text="我的书库" FontSize="22" FontWeight="SemiBold" Foreground="{StaticResource PrimaryTextBrush}" />
+          <TextBlock x:Name="LibraryCountText" Text="共 0 本图书" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="{StaticResource SecondaryTextBrush}" />
+        </Grid>
+
+        <!-- Library Items Grid -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="24,0,24,24">
+          <StackPanel x:Name="LibraryContainer">
+            <!-- Empty Library Tip -->
+            <Border x:Name="EmptyLibraryState" Background="White" CornerRadius="12" BorderBrush="{StaticResource SubtleBorderBrush}" BorderThickness="1" Padding="40" Margin="0,40,0,0" HorizontalAlignment="Center">
+              <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="&#xE8B9;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="48" Foreground="{StaticResource SecondaryTextBrush}" HorizontalAlignment="Center" Margin="0,0,0,16" />
+                <TextBlock Text="书库暂无图书" FontSize="18" FontWeight="SemiBold" HorizontalAlignment="Center" Foreground="{StaticResource PrimaryTextBrush}" Margin="0,0,0,8" />
+                <TextBlock Text="点击右上角「导入图书」选择 TXT 或 EPUB 文件加入书库" FontSize="13" Foreground="{StaticResource SecondaryTextBrush}" HorizontalAlignment="Center" Margin="0,0,0,20" />
+                <Button Click="ImportButton_Click" Style="{StaticResource PrimaryButtonStyle}" HorizontalAlignment="Center" Content="立即导入图书" />
+              </StackPanel>
+            </Border>
+
+            <!-- Books ItemsControl -->
+            <ItemsControl x:Name="BooksItemsControl">
+              <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                  <UniformGrid Columns="4" />
+                </ItemsPanelTemplate>
+              </ItemsControl.ItemsPanel>
+
+              <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                  <Border Margin="8" Background="White" CornerRadius="10" BorderBrush="{StaticResource SubtleBorderBrush}" BorderThickness="1" Padding="14">
+                    <Grid>
+                      <Grid.RowDefinitions>
+                        <RowDefinition Height="140" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                      </Grid.RowDefinitions>
+
+                      <!-- Book Cover Placeholder -->
+                      <Border Grid.Row="0" CornerRadius="6" Background="#EFF5F2" Margin="0,0,0,12">
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                          <TextBlock Text="&#xE8FF;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="36" Foreground="{StaticResource AccentBrush}" HorizontalAlignment="Center" Margin="0,0,0,6" />
+                          <TextBlock Text="{Binding FileType}" FontSize="11" FontWeight="Bold" Foreground="{StaticResource AccentBrush}" HorizontalAlignment="Center" />
+                        </StackPanel>
+                      </Border>
+
+                      <TextBlock Grid.Row="1" Text="{Binding Title}" FontSize="14" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" Foreground="{StaticResource PrimaryTextBrush}" ToolTip="{Binding Title}" />
+                      <TextBlock Grid.Row="2" Text="{Binding Author}" FontSize="12" Foreground="{StaticResource SecondaryTextBrush}" Margin="0,4,0,10" />
+
+                      <Grid Grid.Row="3">
+                        <Button Content="继续阅读" Tag="{Binding}" Click="OpenBook_Click" Style="{StaticResource PrimaryButtonStyle}" Height="32" Padding="10,0" FontSize="12" HorizontalAlignment="Left" />
+                        <Button Content="删除" Tag="{Binding}" Click="DeleteBook_Click" Style="{StaticResource IconButtonStyle}" Width="32" Height="32" ToolTip="从书库移除" HorizontalAlignment="Right" Foreground="#DC2626" />
+                      </Grid>
+                    </Grid>
+                  </Border>
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+          </StackPanel>
+        </ScrollViewer>
+      </Grid>
+
+      <!-- Reader View -->
+      <Grid x:Name="ReaderView" Visibility="Collapsed" Background="#FFFDF8">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Reader Top Toolbar -->
+        <Border x:Name="ReaderTopBar" Grid.Row="0" Background="#FFFAF7F0" BorderBrush="#1F000000" BorderThickness="0,0,0,1" Padding="12,6">
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="0">
+              <Button Click="BackToLibrary_Click" Style="{StaticResource IconButtonStyle}" ToolTip="返回书库">
+                <TextBlock Text="&#xE72B;" />
+              </Button>
+              <Button Click="ToggleChapters_Click" Style="{StaticResource IconButtonStyle}" ToolTip="章节目录" Margin="4,0,0,0">
+                <TextBlock Text="&#xE8FD;" />
+              </Button>
+              <Button Click="ToggleBookmarks_Click" Style="{StaticResource IconButtonStyle}" ToolTip="书签列表" Margin="4,0,0,0">
+                <TextBlock Text="&#xE8B9;" />
+              </Button>
+              <TextBlock x:Name="ReaderTitle" Text="书名" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center" Margin="12,0,0,0" Foreground="{StaticResource PrimaryTextBrush}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="2">
+              <Button Click="AddBookmark_Click" Style="{StaticResource IconButtonStyle}" ToolTip="添加书签" Margin="0,0,4,0">
+                <TextBlock Text="&#xE735;" />
+              </Button>
+              <Button Click="ToggleTts_Click" Style="{StaticResource IconButtonStyle}" ToolTip="语音朗读" Margin="0,0,4,0">
+                <TextBlock Text="&#xE768;" />
+              </Button>
+              <Button Click="ToggleFind_Click" Style="{StaticResource IconButtonStyle}" ToolTip="文本查找" Margin="0,0,4,0">
+                <TextBlock Text="&#xE721;" />
+              </Button>
+              <Button Click="ToggleSettings_Click" Style="{StaticResource IconButtonStyle}" ToolTip="阅读设置">
+                <TextBlock Text="&#xE713;" />
+              </Button>
+            </StackPanel>
+          </Grid>
+        </Border>
+
+        <!-- Main Reading Body -->
+        <Grid Grid.Row="1">
+          <!-- Reader Surface Container -->
+          <Grid x:Name="ReaderSurface" Background="#FFFDF8" PreviewMouseWheel="ReaderSurface_PreviewMouseWheel">
+            <Grid x:Name="ReadingArea" Grid.Column="2" ClipToBounds="True">
+              <ScrollViewer x:Name="ReaderScrollViewer" ScrollChanged="ReaderScrollViewer_ScrollChanged" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
+                <ScrollViewer.RenderTransform><TranslateTransform x:Name="ReaderViewportTranslate" /></ScrollViewer.RenderTransform>
+                <Border x:Name="ReaderPageContainer" MaxWidth="1320" Padding="40,30,40,30" HorizontalAlignment="Stretch" RenderTransformOrigin="0.5,0.5">
+                  <Border.RenderTransform><TranslateTransform x:Name="ReaderPageTranslate" /></Border.RenderTransform>
+                  <Grid x:Name="ReaderColumnsGrid" HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="49" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                    <TextBlock x:Name="ReaderTextBlock" FontFamily="Microsoft YaHei UI" FontSize="19" LineHeight="33.25" Foreground="#FF2B2926" TextWrapping="Wrap" HorizontalAlignment="Stretch" />
+                    <Border x:Name="ColumnDivider" Grid.Column="1" Width="1" Background="#18000000" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="ReaderTextBlockSecond" Grid.Column="2" FontFamily="Microsoft YaHei UI" FontSize="19" LineHeight="33.25" Foreground="#FF2B2926" TextWrapping="Wrap" HorizontalAlignment="Stretch" />
+                  </Grid>
+                </Border>
+              </ScrollViewer>
+
+              <!-- Page Turn Animation Layer -->
+              <Grid x:Name="PageTurnOverlay" Visibility="Collapsed" IsHitTestVisible="False" Panel.ZIndex="20">
+                <Border x:Name="PageTurnStaticSheet" Background="#FFFFFDF8" HorizontalAlignment="Left">
+                  <Image x:Name="PageTurnStaticSnapshot" Stretch="Fill" />
+                </Border>
+                <Border x:Name="PageTurnSheet" Background="#FFFFFDF8" RenderTransformOrigin="1,0.5">
+                  <Border.RenderTransform>
+                    <TransformGroup>
+                      <ScaleTransform x:Name="PageTurnScale" ScaleX="1" ScaleY="1" />
+                      <SkewTransform x:Name="PageTurnSkew" />
+                      <RotateTransform x:Name="PageTurnRotate" />
+                      <TranslateTransform x:Name="PageTurnSheetTranslate" />
+                    </TransformGroup>
+                  </Border.RenderTransform>
+                  <Grid>
+                    <Image x:Name="PageTurnSnapshot" Stretch="Fill" />
+                    <Border x:Name="PageTurnEdgeShadow" Width="12" Background="#30000000" HorizontalAlignment="Right" />
+                  </Grid>
+                </Border>
+              </Grid>
+
+              <!-- TTS Speech Control Bar -->
+              <Border x:Name="TtsBar" Background="#FFFAF7F0" BorderBrush="#26000000" BorderThickness="1" CornerRadius="8" Padding="12,8" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,12,0,0" Visibility="Collapsed" Panel.ZIndex="25">
+                <StackPanel Orientation="Horizontal">
+                  <Button x:Name="TtsPlayPauseButton" Click="TtsPlayPause_Click" Style="{StaticResource IconButtonStyle}" Content="&#xE768;" ToolTip="播放/暂停" Foreground="#FF1F1F1F" />
+                  <Button Click="TtsStop_Click" Style="{StaticResource IconButtonStyle}" Content="&#xE71A;" ToolTip="停止朗读" Foreground="#FF1F1F1F" Margin="6,0,0,0" />
+                  <TextBlock Text="语速:" VerticalAlignment="Center" Margin="12,0,6,0" FontSize="12" Foreground="{StaticResource SecondaryTextBrush}" />
+                  <Slider x:Name="TtsRateSlider" Width="100" Minimum="-5" Maximum="5" Value="0" TickFrequency="1" IsSnapToTickEnabled="True" VerticalAlignment="Center" ValueChanged="TtsRateSlider_ValueChanged" />
+                  <Button Click="CloseTts_Click" Style="{StaticResource IconButtonStyle}" Content="&#xE711;" ToolTip="关闭朗读栏" Foreground="#FF1F1F1F" Margin="12,0,0,0" />
+                </StackPanel>
+              </Border>
+
+              <!-- Search Bar -->
+              <Border x:Name="FindBar" Background="#FFFAF7F0" BorderBrush="#26000000" BorderThickness="1" CornerRadius="6" Padding="8" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,24,0" Visibility="Collapsed">
+                <StackPanel Orientation="Horizontal">
+                  <TextBox x:Name="FindTextBox" Width="220" KeyDown="FindTextBox_KeyDown" ToolTip="输入要查找的文字" Foreground="#FF1F1F1F" />
+                  <Button Click="FindNext_Click" ToolTip="查找下一个" Style="{StaticResource IconButtonStyle}" Content="&#xE72A;" Foreground="#FF1F1F1F" Margin="6,0,0,0" />
+                  <Button Click="CloseFind_Click" ToolTip="关闭" Style="{StaticResource IconButtonStyle}" Content="&#xE711;" Foreground="#FF1F1F1F" Margin="6,0,0,0" />
+                </StackPanel>
+              </Border>
+
+              <!-- Settings Panel -->
+              <Border x:Name="SettingsPanel" Background="White" BorderBrush="#26000000" BorderThickness="1" CornerRadius="6" Padding="18" Width="300" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,24,0" Visibility="Collapsed">
+                <StackPanel>
+                  <TextBlock Text="阅读设置" FontSize="16" FontWeight="SemiBold" Foreground="#FF1F1F1F" />
+                  <Grid Margin="0,16,0,5"><TextBlock Text="字号" Foreground="#FF1F1F1F" /><TextBlock x:Name="FontSizeValue" HorizontalAlignment="Right" Foreground="{StaticResource SecondaryTextBrush}" /></Grid>
+                  <Slider x:Name="FontSizeSlider" Minimum="14" Maximum="32" Value="19" TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="FontSizeSlider_ValueChanged" />
+                  <Grid Margin="0,14,0,5"><TextBlock Text="行距" Foreground="#FF1F1F1F" /><TextBlock x:Name="LineHeightValue" HorizontalAlignment="Right" Foreground="{StaticResource SecondaryTextBrush}" /></Grid>
+                  <Slider x:Name="LineHeightSlider" Minimum="1.4" Maximum="2.2" Value="1.75" TickFrequency="0.05" IsSnapToTickEnabled="True" ValueChanged="LineHeightSlider_ValueChanged" />
+                  <TextBlock Text="字体" Foreground="#FF1F1F1F" Margin="0,14,0,6" />
+                  <ComboBox x:Name="FontFamilyComboBox" SelectionChanged="FontFamilyComboBox_SelectionChanged" Padding="7,5">
+                    <ComboBoxItem Content="微软雅黑" Tag="Microsoft YaHei UI" />
+                    <ComboBoxItem Content="霞鹜文楷" Tag="LXGW WenKai, 霞鹜文楷, KaiTi" />
+                    <ComboBoxItem Content="等线" Tag="DengXian" />
+                    <ComboBoxItem Content="宋体" Tag="SimSun" />
+                    <ComboBoxItem Content="Segoe UI" Tag="Segoe UI" />
+                  </ComboBox>
+                  <TextBlock Text="版式" Foreground="#FF1F1F1F" Margin="0,14,0,7" />
+                  <UniformGrid Columns="2">
+                    <Button x:Name="SingleColumnButton" Content="单栏" Tag="1" Click="ReadingColumns_Click" Foreground="#FF1F1F1F" Margin="0,0,6,0" />
+                    <Button x:Name="DoubleColumnButton" Content="双栏" Tag="2" Click="ReadingColumns_Click" Foreground="#FF1F1F1F" />
+                  </UniformGrid>
+                  <TextBlock Text="主题配色" Foreground="#FF1F1F1F" Margin="0,14,0,7" />
+                  <UniformGrid Columns="4">
+                    <Button x:Name="PaperThemeButton" Content="羊皮纸" Tag="paper" Click="ReadingTheme_Click" Foreground="#FF1F1F1F" Margin="0,0,4,0" />
+                    <Button x:Name="LightThemeButton" Content="纯白" Tag="light" Click="ReadingTheme_Click" Foreground="#FF1F1F1F" Margin="0,0,4,0" />
+                    <Button x:Name="GreenThemeButton" Content="护眼绿" Tag="green" Click="ReadingTheme_Click" Foreground="#FF1F1F1F" Margin="0,0,4,0" />
+                    <Button x:Name="DarkThemeButton" Content="夜间" Tag="dark" Click="ReadingTheme_Click" Foreground="#FF1F1F1F" />
+                  </UniformGrid>
+                  <TextBlock Text="翻页效果" Foreground="#FF1F1F1F" Margin="0,14,0,7" />
+                  <UniformGrid Columns="2">
+                    <Button x:Name="SmoothTurnButton" Content="平滑滑动" Tag="smooth" Click="PageTurnEffect_Click" Foreground="#FF1F1F1F" Margin="0,0,6,0" />
+                    <Button x:Name="RealisticTurnButton" Content="仿真翻页" Tag="realistic" Click="PageTurnEffect_Click" Foreground="#FF1F1F1F" />
+                  </UniformGrid>
+                  <TextBlock Text="阅读模式" Foreground="#FF1F1F1F" Margin="0,14,0,7" />
+                  <UniformGrid Columns="2">
+                    <Button x:Name="PagedModeButton" Content="分页阅读" Tag="paged" Click="ReadingMode_Click" Foreground="#FF1F1F1F" Margin="0,0,6,0" />
+                    <Button x:Name="ScrollModeButton" Content="连续滚动" Tag="scroll" Click="ReadingMode_Click" Foreground="#FF1F1F1F" />
+                  </UniformGrid>
+                </StackPanel>
+              </Border>
+
+              <!-- Chapter Drawer -->
+              <Border x:Name="ChaptersPanel" Background="#FFFAF7F0" BorderBrush="#26000000" BorderThickness="0,0,1,0" Width="310" HorizontalAlignment="Left" Visibility="Collapsed">
+                <Grid>
+                  <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+                  <Grid Grid.Row="0" Margin="16,16,16,10">
+                    <TextBlock Text="章节目录" FontSize="16" FontWeight="SemiBold" Foreground="#FF1F1F1F" />
+                    <TextBlock x:Name="ChapterSummary" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="{StaticResource SecondaryTextBrush}" />
+                  </Grid>
+                  <ListBox x:Name="ChaptersList" Grid.Row="1" SelectionChanged="ChaptersList_SelectionChanged" BorderThickness="0" Background="Transparent" DisplayMemberPath="Title" Padding="8,0" />
+                </Grid>
+              </Border>
+
+              <!-- Bookmarks Drawer -->
+              <Border x:Name="BookmarksPanel" Background="#FFFAF7F0" BorderBrush="#26000000" BorderThickness="0,0,1,0" Width="310" HorizontalAlignment="Left" Visibility="Collapsed">
+                <Grid>
+                  <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+                  <Grid Grid.Row="0" Margin="16,16,16,10">
+                    <TextBlock Text="书签列表" FontSize="16" FontWeight="SemiBold" Foreground="#FF1F1F1F" />
+                    <Button Click="CloseBookmarks_Click" Style="{StaticResource IconButtonStyle}" Width="28" Height="28" HorizontalAlignment="Right" Content="&#xE711;" Foreground="#FF1F1F1F" />
+                  </Grid>
+                  <ListBox x:Name="BookmarksList" Grid.Row="1" SelectionChanged="BookmarksList_SelectionChanged" BorderThickness="0" Background="Transparent" Padding="8,0">
+                    <ListBox.ItemTemplate>
+                      <DataTemplate>
+                        <Grid Margin="4,6">
+                          <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                          <TextBlock Grid.Row="0" Text="{Binding ChapterTitle}" FontWeight="SemiBold" Foreground="#FF1F1F1F" />
+                          <TextBlock Grid.Row="1" Text="{Binding PreviewText}" Foreground="{StaticResource SecondaryTextBrush}" Margin="0,2,0,0" TextTrimming="CharacterEllipsis" />
+                          <TextBlock Grid.Row="2" Text="{Binding Progress, StringFormat=P1}" Foreground="{StaticResource AccentBrush}" FontSize="11" Margin="0,4,0,0" />
+                        </Grid>
+                      </DataTemplate>
+                    </ListBox.ItemTemplate>
+                  </ListBox>
+                </Grid>
+              </Border>
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <!-- Reader Bottom Status Bar -->
+        <Border x:Name="ReaderStatusBar" Grid.Row="2" Background="#FFFAF7F0" BorderBrush="#1F000000" BorderThickness="0,1,0,0" Padding="16,6">
+          <Grid>
+            <TextBlock x:Name="ReaderStatus" FontSize="12" Foreground="{StaticResource SecondaryTextBrush}" VerticalAlignment="Center" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+              <TextBlock x:Name="ReaderPageStatus" FontSize="12" Foreground="{StaticResource SecondaryTextBrush}" VerticalAlignment="Center" Margin="0,0,12,0" />
+              <Button x:Name="PreviousChunkButton" Click="PreviousChunkButton_Click" Style="{StaticResource IconButtonStyle}" Width="28" Height="28" ToolTip="上一页">
+                <TextBlock Text="&#xE72B;" FontSize="12" />
+              </Button>
+              <Button x:Name="NextChunkButton" Click="NextChunkButton_Click" Style="{StaticResource IconButtonStyle}" Width="28" Height="28" ToolTip="下一页" Margin="4,0,0,0">
+                <TextBlock Text="&#xE72A;" FontSize="12" />
+              </Button>
+            </StackPanel>
+          </Grid>
+        </Border>
+      </Grid>
+    </Grid>
+  </Grid>
+</Window>

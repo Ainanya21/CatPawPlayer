@@ -1,0 +1,71 @@
+# ==========================================
+# CatPawPlayer (猫爪播放器) .gitignore
+# ==========================================
+
+# Visual Studio & .NET Build Artifacts
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+ARM64/
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.exe
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+.vscode/
+
+# Windows App SDK / NuGet Packages Cache & Local Tools
+.packages/
+packages/
+.dotnet/
+tools/
+dotnet-install.ps1
+*.nupkg
+project.lock.json
+project.assets.json
+*.nuget.props
+*.nuget.targets
+
+# Distribution & Installer Output (Uploaded to GitHub Releases)
+dist/
+*.msi
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+*.zip
+*.7z
+
+# Node.js & Temporary Test Scripts
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+find_*.js
+inspect_*.js
+test_*.js
+*.log
+
+# Windows OS Generated
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msm
+*.msp
+
+# Local App Runtime Storage
+%LocalAppData%/CatPawPlayer/
+AppData/
