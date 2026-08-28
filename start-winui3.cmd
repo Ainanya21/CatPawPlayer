@@ -1,3 +1,0 @@
-@echo off
-echo 正在启动 猫爪播放器 (WinUI 3 原生版)...
-start "" "%~dp0CatPawPlayer.WinUI\bin\Release\net8.0-windows10.0.19041.0\win-x64\CatPawPlayer.exe"

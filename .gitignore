@@ -23,9 +23,23 @@ ARM64/
 .vs/
 .vscode/
 
-# Other Unrelated Projects
+# Closed-Source Local Code & Projects (Preserved locally, excluded from public repo)
+CatPawPlayer.Installer/
+CatPawPlayer.NativeWin/
+CatPawPlayer.WinUI/
+CatPawPlayer/
 LeafReader/
 start-reader.cmd
+start-native-win.cmd
+start-winui3.cmd
+run.ps1
+build_icon.cs
+build_icon.exe
+cat_spider_server.js
+create_packages.js
+spiderHost.js
+global.json
+NuGet.Config
 
 # Windows App SDK / NuGet Packages Cache & Local Tools
 .packages/
