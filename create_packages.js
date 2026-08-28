@@ -7,7 +7,7 @@ const outDir = path.join(rootDir, 'dist');
 fs.mkdirSync(outDir, { recursive: true });
 
 const srcDir = path.join(rootDir, 'CatPawPlayer.WinUI', 'bin', 'Release', 'net8.0-windows10.0.19041.0', 'win-x64');
-const zipPath = path.join(outDir, 'CatPawPlayer_v1.0.2_Portable.zip');
+const zipPath = path.join(outDir, 'CatPawPlayer_v1.0.3_Portable.zip');
 
 console.log('Creating portable zip archive with tar...');
 execSync(`"C:\\Windows\\System32\\tar.exe" -a -c -f "${zipPath}" -C "${srcDir}" .`);

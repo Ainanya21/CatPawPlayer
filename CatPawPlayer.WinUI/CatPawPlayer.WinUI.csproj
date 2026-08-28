@@ -20,9 +20,9 @@
 
     <!-- App Metadata & Branding -->
     <ApplicationIcon>Assets\AppIcon.ico</ApplicationIcon>
-    <Version>1.0.2</Version>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
-    <FileVersion>1.0.2.0</FileVersion>
+    <Version>1.0.3</Version>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
     <Product>猫爪播放器 (CatPawPlayer)</Product>
     <Company>CatPaw Studio</Company>
     <Description>极速原生影视流媒体播放器，支持 4K HDR、杜比音频与多源聚合搜索</Description>

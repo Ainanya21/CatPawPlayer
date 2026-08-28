@@ -5,7 +5,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Assets\AppIcon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyName>CatPawPlayer_v1.0.2_Setup</AssemblyName>
+    <AssemblyName>CatPawPlayer_v1.0.3_Setup</AssemblyName>
     <RootNamespace>CatPawPlayer.Installer</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -15,15 +15,15 @@
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
 
     <!-- Version Metadata -->
-    <Version>1.0.2</Version>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
-    <FileVersion>1.0.2.0</FileVersion>
+    <Version>1.0.3</Version>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
     <Product>猫爪播放器 安装程序</Product>
     <Company>CatPaw Studio</Company>
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="..\dist\CatPawPlayer_v1.0.2_Portable.zip">
+    <EmbeddedResource Include="..\dist\CatPawPlayer_v1.0.3_Portable.zip">
       <Link>payload.zip</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\AppIcon.ico">

@@ -20,12 +20,14 @@ public sealed partial class CategoryPage : Page
     private bool _initialized = false;
     private bool _filterExpanded = true;
     private string? _pendingSiteKey = null;
+    private double _savedScrollOffset = 0;
 
     private Microsoft.UI.Xaml.Controls.WebView2? _configCenterWebView;
 
     public CategoryPage()
     {
         InitializeComponent();
+        NavigationCacheMode = NavigationCacheMode.Required;
         Loaded += CategoryPage_Loaded;
     }
 
@@ -35,11 +37,65 @@ public sealed partial class CategoryPage : Page
         if (e.Parameter is string siteKey && !string.IsNullOrEmpty(siteKey))
         {
             _pendingSiteKey = siteKey;
+            _savedScrollOffset = 0;
+        }
+
+        if (e.NavigationMode == NavigationMode.Back && _initialized)
+        {
+            RestoreScrollPosition();
+        }
+    }
+
+    protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+    {
+        base.OnNavigatingFrom(e);
+        SaveScrollPosition();
+    }
+
+    public void SaveScrollPosition()
+    {
+        if (VideosScrollViewer != null)
+        {
+            _savedScrollOffset = VideosScrollViewer.VerticalOffset;
+        }
+    }
+
+    public void RestoreScrollPosition()
+    {
+        if (_savedScrollOffset > 0 && VideosScrollViewer != null)
+        {
+            DispatcherQueue.TryEnqueue(async () =>
+            {
+                await Task.Delay(60);
+                VideosScrollViewer.ChangeView(null, _savedScrollOffset, null, true);
+            });
         }
     }
 
     private async void CategoryPage_Loaded(object sender, RoutedEventArgs e)
     {
+        if (_initialized)
+        {
+            if (!string.IsNullOrEmpty(_pendingSiteKey))
+            {
+                var targetSite = App.Sites.FirstOrDefault(s => s.Key == _pendingSiteKey || s.Api.Contains(_pendingSiteKey));
+                if (targetSite != null && targetSite.Key != App.ActiveSite?.Key)
+                {
+                    App.ActiveSite = targetSite;
+                    var idx = App.Sites.IndexOf(targetSite);
+                    if (idx >= 0) SiteSelector.SelectedIndex = idx;
+                    _pendingSiteKey = null;
+                    _savedScrollOffset = 0;
+                    await LoadHomeDataAsync();
+                    return;
+                }
+                _pendingSiteKey = null;
+            }
+
+            RestoreScrollPosition();
+            return;
+        }
+
         if (App.Sites.Count == 0 || App.ActiveSite == null)
         {
             await App.EnsureSitesLoadedAsync();
@@ -88,6 +144,7 @@ public sealed partial class CategoryPage : Page
 
         if (SiteSelector.SelectedItem is SiteSource site && site.Key != App.ActiveSite?.Key)
         {
+            _savedScrollOffset = 0;
             App.ActiveSite = site;
             App.Settings.SaveActiveSiteKey(site.Key);
             await LoadHomeDataAsync();
@@ -96,6 +153,7 @@ public sealed partial class CategoryPage : Page
 
     private async void RefreshBtn_Click(object sender, RoutedEventArgs e)
     {
+        _savedScrollOffset = 0;
         await LoadHomeDataAsync();
     }
 

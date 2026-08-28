@@ -16,18 +16,62 @@ public sealed partial class HomePage : Page
     private readonly DispatcherTimer _heroTimer = new();
     private bool _isLoading = false;
     private bool _initialized = false;
+    private double _savedScrollOffset = 0;
 
     public HomePage()
     {
         InitializeComponent();
+        NavigationCacheMode = Microsoft.UI.Xaml.Navigation.NavigationCacheMode.Required;
         _heroTimer.Interval = TimeSpan.FromSeconds(5);
         _heroTimer.Tick += (s, e) => NextBanner();
         Loaded += HomePage_Loaded;
         Unloaded += (s, e) => _heroTimer.Stop();
     }
 
+    protected override void OnNavigatedTo(Microsoft.UI.Xaml.Navigation.NavigationEventArgs e)
+    {
+        base.OnNavigatedTo(e);
+        if (e.NavigationMode == Microsoft.UI.Xaml.Navigation.NavigationMode.Back && _initialized)
+        {
+            RestoreScrollPosition();
+        }
+    }
+
+    protected override void OnNavigatingFrom(Microsoft.UI.Xaml.Navigation.NavigatingCancelEventArgs e)
+    {
+        base.OnNavigatingFrom(e);
+        SaveScrollPosition();
+    }
+
+    public void SaveScrollPosition()
+    {
+        if (ContentScroller != null)
+        {
+            _savedScrollOffset = ContentScroller.VerticalOffset;
+        }
+    }
+
+    public void RestoreScrollPosition()
+    {
+        if (_savedScrollOffset > 0 && ContentScroller != null)
+        {
+            DispatcherQueue.TryEnqueue(async () =>
+            {
+                await Task.Delay(60);
+                ContentScroller.ChangeView(null, _savedScrollOffset, null, true);
+            });
+        }
+    }
+
     private async void HomePage_Loaded(object sender, RoutedEventArgs e)
     {
+        if (_initialized)
+        {
+            if (_heroItems.Count > 0 && !_heroTimer.IsEnabled) _heroTimer.Start();
+            RestoreScrollPosition();
+            return;
+        }
+
         LoadingRing.IsActive = true;
 
         if (App.Sites.Count == 0 || App.ActiveSite == null)
@@ -270,7 +314,17 @@ public sealed partial class HomePage : Page
     {
         if (_heroItems.Count > 0 && _currentHeroIndex < _heroItems.Count && App.ActiveSite != null)
         {
+            SaveScrollPosition();
             var item = _heroItems[_currentHeroIndex];
+            MainWindow.Instance?.NavigateToDetail(item, App.ActiveSite);
+        }
+    }
+
+    private void ShowcaseGrid_ItemClick(object sender, ItemClickEventArgs e)
+    {
+        if (e.ClickedItem is VodItem item && App.ActiveSite != null)
+        {
+            SaveScrollPosition();
             MainWindow.Instance?.NavigateToDetail(item, App.ActiveSite);
         }
     }

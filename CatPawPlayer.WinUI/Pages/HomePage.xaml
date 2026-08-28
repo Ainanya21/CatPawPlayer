@@ -177,7 +177,8 @@
                     <GridView x:Name="ShowcaseGrid"
                               HorizontalAlignment="Stretch"
                               SelectionMode="None"
-                              IsItemClickEnabled="False"
+                              IsItemClickEnabled="True"
+                              ItemClick="ShowcaseGrid_ItemClick"
                               SizeChanged="ShowcaseGrid_SizeChanged">
                         <GridView.ItemsPanel>
                             <ItemsPanelTemplate>
