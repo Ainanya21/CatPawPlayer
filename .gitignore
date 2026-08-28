@@ -23,6 +23,10 @@ ARM64/
 .vs/
 .vscode/
 
+# Other Unrelated Projects
+LeafReader/
+start-reader.cmd
+
 # Windows App SDK / NuGet Packages Cache & Local Tools
 .packages/
 packages/
