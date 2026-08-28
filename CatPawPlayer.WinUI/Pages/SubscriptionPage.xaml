@@ -42,15 +42,37 @@
 
             <MenuFlyoutSeparator/>
 
+            <!-- Auto-Update Explanation Card -->
+            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="14,10">
+                <StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                    <FontIcon Glyph="&#xE789;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                    <TextBlock Text="🔄 智能更新机制：每次启动软件时，均会自动联网拉取激活源的最新站点与动态爬虫；您也可以在下方随时手动点击刷新以立即同步。"
+                               Style="{StaticResource CaptionTextBlockStyle}"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               VerticalAlignment="Center"
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+
             <!-- Saved Subscriptions -->
             <StackPanel Spacing="8">
                 <Grid>
                     <TextBlock Text="已保存的订阅源" Style="{StaticResource BodyStrongTextBlockStyle}" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="SubCountText"
-                               HorizontalAlignment="Right"
-                               VerticalAlignment="Center"
-                               Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                               Style="{StaticResource CaptionTextBlockStyle}"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="12">
+                        <Button x:Name="RefreshAllBtn"
+                                Content="🔄 刷新全部订阅"
+                                Style="{StaticResource SubtleButtonStyle}"
+                                Padding="8,4"
+                                Click="RefreshAllBtn_Click"/>
+                        <TextBlock x:Name="SubCountText"
+                                   VerticalAlignment="Center"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   Style="{StaticResource CaptionTextBlockStyle}"/>
+                    </StackPanel>
                 </Grid>
 
                 <ListView x:Name="SubListView"

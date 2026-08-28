@@ -101,6 +101,37 @@ public sealed partial class SubscriptionPage : Page
         }
     }
 
+    private async void RefreshAllBtn_Click(object sender, RoutedEventArgs e)
+    {
+        RefreshAllBtn.IsEnabled = false;
+        ShowStatus("更新中", "正在从云端拉取所有订阅源与爬虫更新...", InfoBarSeverity.Informational);
+
+        int successCount = 0;
+        foreach (var sub in App.Subscriptions.ToList())
+        {
+            try
+            {
+                var cfg = await App.CatVod.FetchSubscriptionAsync(sub.Url);
+                if (cfg != null && cfg.Sites.Count > 0)
+                {
+                    sub.SiteCount = cfg.Sites.Count;
+                    if (sub.Url == App.ActiveSubUrl)
+                    {
+                        App.Sites = cfg.Sites;
+                        App.ActiveSite = cfg.Sites.FirstOrDefault();
+                    }
+                    successCount++;
+                }
+            }
+            catch { }
+        }
+
+        App.Settings.SaveSubscriptions(App.Subscriptions);
+        LoadData();
+        RefreshAllBtn.IsEnabled = true;
+        ShowStatus("同步完成", $"已成功检查并刷新全部 {successCount} 个订阅源！", InfoBarSeverity.Success);
+    }
+
     private async Task LoadSubscriptionAsync(string url, string name)
     {
         StatusBar.IsOpen = false;

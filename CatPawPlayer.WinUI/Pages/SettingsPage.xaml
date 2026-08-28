@@ -145,7 +145,7 @@
                 <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="20" CornerRadius="8" BorderThickness="1" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}">
                     <StackPanel Spacing="6">
                         <TextBlock Text="CatPawPlayer 猫爪播放器" FontWeight="Bold" FontSize="16"/>
-                        <TextBlock x:Name="VersionTextBlock" Text="版本 1.0.0 正式版 (WinUI 3 原生版)" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        <TextBlock x:Name="VersionTextBlock" Text="版本 1.0.1 正式版 (WinUI 3 原生版)" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                         <TextBlock Text="基于 Windows App SDK / WinUI 3、Yaozhi-MPV 渲染引擎与 Node.js 爬虫引擎原生构建。" Margin="0,8,0,0" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                     </StackPanel>
                 </Border>
