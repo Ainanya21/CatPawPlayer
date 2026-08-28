@@ -187,6 +187,6 @@ public class AppSettings
     public string? QuarkCookie { get; set; }
     public string? BaiduCookie { get; set; }
     public string? Cookie115 { get; set; }
-    public string MpvPath { get; set; } = @"D:\yu896367449\Yaozhi-mpv-8.11\mpv_config\mpv.exe";
-    public bool UseExternalMpv { get; set; } = true;
+    public string MpvPath { get; set; } = "";
+    public bool UseExternalMpv { get; set; } = false;
 }
