@@ -174,4 +174,32 @@ public sealed partial class SettingsPage : Page
         settings.Cookie115 = Cookie115Box.Text.Trim();
         App.Settings.SaveSettings(settings);
     }
+
+    private void OpenGitHub_Click(object sender, RoutedEventArgs e)
+    {
+        try { System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("https://github.com/Ainanya21/CatPawPlayer") { UseShellExecute = true }); } catch { }
+    }
+
+    private void OpenTelegramChannel_Click(object sender, RoutedEventArgs e)
+    {
+        try { System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("https://t.me/CatPawPlayer") { UseShellExecute = true }); } catch { }
+    }
+
+    private void OpenTelegramGroup_Click(object sender, RoutedEventArgs e)
+    {
+        try { System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("https://t.me/CatPawPlayerChat") { UseShellExecute = true }); } catch { }
+    }
+
+    private void CopyQQ_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            var dataPackage = new Windows.ApplicationModel.DataTransfer.DataPackage();
+            dataPackage.SetText("896367449");
+            Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
+            QQCopyTip.Target = sender as FrameworkElement;
+            QQCopyTip.IsOpen = true;
+        }
+        catch { }
+    }
 }

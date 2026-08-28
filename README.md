@@ -6,10 +6,11 @@
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078D6?style=flat-square&logo=windows)](https://github.com/Ainanya21/CatPawPlayer)
 [![Framework](https://img.shields.io/badge/UI-WinUI%203%20%2F%20Windows%20App%20SDK%201.6-8860D0?style=flat-square&logo=microsoft)](https://github.com/Ainanya21/CatPawPlayer)
 [![.NET](https://img.shields.io/badge/.NET-8.0%20LTS-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com/)
-[![MPV](https://img.shields.io/badge/Engine-Yaozhi--MPV%20%2B%20Offline%20HLS-FF5722?style=flat-square)](https://github.com/Ainanya21/CatPawPlayer)
+[![Telegram Channel](https://img.shields.io/badge/Telegram-Channel-2CA5E0?style=flat-square&logo=telegram)](https://t.me/CatPawPlayer)
+[![Telegram Group](https://img.shields.io/badge/Telegram-Group-2CA5E0?style=flat-square&logo=telegram)](https://t.me/CatPawPlayerChat)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[**下载体验**](#-下载与安装) • [**核心功能**](#-核心亮点) • [**配置中心与网盘**](#-配置中心与网盘授权) • [**本地编译构建**](#-本地编译与开发) • [**使用指南**](#-使用指南)
+[**下载体验**](#-下载与安装) • [**核心功能**](#-核心亮点) • [**配置中心与网盘**](#-配置中心与网盘授权) • [**交流反馈**](#-交流与社区反馈) • [**本地编译构建**](#-本地编译与开发)
 
 </div>
 
@@ -39,8 +40,8 @@
 
 | 文件类型 | 说明 | 适用场景 |
 | :--- | :--- | :--- |
-| **`CatPawPlayer_v1.0.3_Setup.exe`** | 现代图形化安装向导，支持自定义路径、桌面快捷方式 | 推荐大多数用户使用，支持覆盖更新升级 |
-| **`CatPawPlayer_v1.0.3_Portable.zip`** | 绿色免安装解压即用版 | 适合便携 U 盘或快速体验 |
+| **`CatPawPlayer_v1.1.0_Setup.exe`** | 现代图形化安装向导，支持自定义路径、桌面快捷方式 | 推荐大多数用户使用，支持覆盖更新升级 |
+| **`CatPawPlayer_v1.1.0_Portable.zip`** | 绿色免安装解压即用版 | 适合便携 U 盘或快速体验 |
 
 ---
 
@@ -52,6 +53,16 @@
 2. 站点下拉框选择 **「🛠️ 配置中心」**（或点击网盘片源详情页上的授权引导按钮）。
 3. 使用手机对应网盘 APP（夸克 / UC / 阿里云盘 / 百度网盘 / 115）扫码登录。
 4. 授权成功后，爬虫后端将在播放 4K 资源时自动进行秒级转存并换取高速原画播放直链！
+
+---
+
+## 💬 交流与社区反馈
+
+欢迎加入官方社区交流群与频道，获取最新源更新资讯与版本通知：
+
+* 📢 **Telegram 官方频道**：[https://t.me/CatPawPlayer](https://t.me/CatPawPlayer)
+* 💬 **Telegram 交流群组**：[https://t.me/CatPawPlayerChat](https://t.me/CatPawPlayerChat)
+* 🐧 **客服 / 反馈 QQ**：`896367449`
 
 ---
 

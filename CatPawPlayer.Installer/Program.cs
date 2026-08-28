@@ -41,7 +41,7 @@ public class InstallerForm : Form
 
     public InstallerForm()
     {
-        Text = "猫爪播放器 (CatPawPlayer) - 安装向导 v1.0.3";
+        Text = "猫爪播放器 (CatPawPlayer) - 安装向导 v1.1.0";
         AutoScaleMode = AutoScaleMode.None;
         StartPosition = FormStartPosition.CenterScreen;
         FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -108,7 +108,7 @@ public class InstallerForm : Form
 
         var versionLabel = new Label
         {
-            Text = "版本 v1.0.3.0 正式版 · 原生极速影视流媒体客户端",
+            Text = "版本 v1.1.0.0 正式版 · 原生极速影视流媒体客户端",
             Font = new Font("Microsoft YaHei UI", 9F),
             ForeColor = Color.FromArgb(161, 161, 170),
             Location = new Point(92, 54),

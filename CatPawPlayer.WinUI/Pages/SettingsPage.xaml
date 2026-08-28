@@ -137,16 +137,73 @@
                 </Expander>
             </StackPanel>
 
-            <MenuFlyoutSeparator/>
-
-            <!-- Section 4: 关于 -->
+            <!-- Section 4: 关于与交流 -->
             <StackPanel Spacing="16">
-                <TextBlock Text="关于播放器" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                <TextBlock Text="关于与社区支持" Style="{StaticResource SubtitleTextBlockStyle}"/>
                 <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" Padding="20" CornerRadius="8" BorderThickness="1" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}">
-                    <StackPanel Spacing="6">
-                        <TextBlock Text="CatPawPlayer 猫爪播放器" FontWeight="Bold" FontSize="16"/>
-                        <TextBlock x:Name="VersionTextBlock" Text="版本 1.0.3 正式版 (WinUI 3 原生版)" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
-                        <TextBlock Text="基于 Windows App SDK / WinUI 3、Yaozhi-MPV 渲染引擎与 Node.js 爬虫引擎原生构建。" Margin="0,8,0,0" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                    <StackPanel Spacing="14">
+                        <StackPanel Spacing="4">
+                            <TextBlock Text="CatPawPlayer 猫爪播放器" FontWeight="Bold" FontSize="16"/>
+                            <TextBlock x:Name="VersionTextBlock" Text="版本 1.1.0 正式版 (WinUI 3 原生版)" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                            <TextBlock Text="基于 Windows App SDK / WinUI 3、Yaozhi-MPV 渲染引擎与 Node.js 爬虫引擎原生构建。" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        </StackPanel>
+
+                        <!-- Community & Support Buttons -->
+                        <Grid ColumnSpacing="10" RowSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Button Grid.Row="0" Grid.Column="0"
+                                    HorizontalAlignment="Stretch"
+                                    Click="OpenGitHub_Click"
+                                    Style="{StaticResource SubtleButtonStyle}">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <FontIcon Glyph="&#xE774;" Foreground="{ThemeResource AccentAAFillColorDefaultBrush}"/>
+                                    <TextBlock Text="GitHub 项目主页" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Grid.Row="0" Grid.Column="1"
+                                    HorizontalAlignment="Stretch"
+                                    Click="CopyQQ_Click"
+                                    Style="{StaticResource SubtleButtonStyle}">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <FontIcon Glyph="&#xE90A;" Foreground="{ThemeResource AccentAAFillColorDefaultBrush}"/>
+                                    <TextBlock Text="客服 QQ: 896367449 (点击复制)" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Grid.Row="1" Grid.Column="0"
+                                    HorizontalAlignment="Stretch"
+                                    Click="OpenTelegramChannel_Click"
+                                    Style="{StaticResource SubtleButtonStyle}">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <FontIcon Glyph="&#xE8BD;" Foreground="{ThemeResource AccentAAFillColorDefaultBrush}"/>
+                                    <TextBlock Text="Telegram 官方频道" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Grid.Row="1" Grid.Column="1"
+                                    HorizontalAlignment="Stretch"
+                                    Click="OpenTelegramGroup_Click"
+                                    Style="{StaticResource SubtleButtonStyle}">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <FontIcon Glyph="&#xE716;" Foreground="{ThemeResource AccentAAFillColorDefaultBrush}"/>
+                                    <TextBlock Text="Telegram 交流群组" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                        </Grid>
+
+                        <TeachingTip x:Name="QQCopyTip"
+                                     Title="复制成功"
+                                     Subtitle="客服 QQ 号码（896367449）已成功复制到剪贴板！"
+                                     IsLightDismissEnabled="True"/>
                     </StackPanel>
                 </Border>
             </StackPanel>
