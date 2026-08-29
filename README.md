@@ -10,7 +10,23 @@
 [![Telegram Group](https://img.shields.io/badge/Telegram-Group-2CA5E0?style=flat-square&logo=telegram)](https://t.me/CatPawPlayerChat)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[**下载体验**](#-下载与安装) • [**核心功能**](#-核心亮点) • [**配置中心与网盘**](#-配置中心与网盘授权) • [**交流反馈**](#-交流与社区反馈) • [**支持项目**](#-支持项目) • [**来源与许可**](#-来源与许可) • [**本地编译构建**](#-本地编译与开发)
+[**下载体验**](#-下载与安装) • [**界面预览**](#-界面预览) • [**核心功能**](#-核心亮点) • [**配置中心与网盘**](#-配置中心与网盘授权) • [**交流反馈**](#-交流与社区反馈) • [**支持项目**](#-支持项目) • [**来源与许可**](#-来源与许可) • [**本地编译构建**](#-本地编译与开发)
+
+</div>
+
+---
+
+## 📸 界面预览
+
+<div align="center">
+
+### 📺 首页精选推荐与海报流 (Apple TV 级丝滑交互动效)
+![首页推荐](docs/images/screenshot_home.png)
+
+<br/>
+
+### 🎬 影视详情与多线路极速选集 (支持 Yaozhi-MPV 硬件加速与一键切源)
+![影视详情](docs/images/screenshot_detail.png)
 
 </div>
 
