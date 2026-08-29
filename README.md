@@ -10,7 +10,7 @@
 [![Telegram Group](https://img.shields.io/badge/Telegram-Group-2CA5E0?style=flat-square&logo=telegram)](https://t.me/CatPawPlayerChat)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[**下载体验**](#-下载与安装) • [**核心功能**](#-核心亮点) • [**配置中心与网盘**](#-配置中心与网盘授权) • [**交流反馈**](#-交流与社区反馈) • [**本地编译构建**](#-本地编译与开发)
+[**下载体验**](#-下载与安装) • [**核心功能**](#-核心亮点) • [**配置中心与网盘**](#-配置中心与网盘授权) • [**交流反馈**](#-交流与社区反馈) • [**支持项目**](#-支持项目) • [**来源与许可**](#-来源与许可) • [**本地编译构建**](#-本地编译与开发)
 
 </div>
 
@@ -96,6 +96,31 @@ graph TD
 * **爬虫服务端**：Node.js Runtime, Fastify, CatVod Spider API, Multi-Port Engine Host
 * **流媒体解析**：内置 HLS.js 离线引擎 + StreamMetadataService 深度嗅探
 * **安装程序**：.NET 8 WinForms 自定义图形化解压与快捷方式安装向导
+
+---
+
+## 💖 支持项目
+
+如果 **CatPawPlayer (猫爪播放器)** 以及内置的 **mpv-Yaozhi** 极速渲染引擎有幸改善了你的观影与播放体验，非常欢迎在能力范围内支持开发者。
+
+| 微信赞赏 (WeChat Pay) | 支付宝收款 (Alipay) |
+| :---: | :---: |
+| ［微信赞赏码］ | ［支付宝收款码］ |
+
+> 你的支持可以让我更好地持续维护与开发本项目，不断完善多源生态与极致的播放体验，总之非常感谢大家的支持与喜爱！❤️
+
+---
+
+## 📜 来源与许可
+
+本项目参考或集成了以下优秀开源项目及社区成果，在此向所有开源创作者与社区贡献者致以崇高的敬意与感谢：
+
+* **[mpv](https://mpv.io/) / [mpv-Yaozhi](https://github.com/)**：高性能跨平台视频渲染器与硬件加速解码核心，为本项目提供极致的 4K HDR、杜比视界及 120FPS 观影支持。
+* **[WinUI 3](https://github.com/microsoft/WindowsAppSDK) / [Windows App SDK](https://learn.microsoft.com/windows/apps/windows-app-sdk/)**：微软现代 Windows 原生桌面 Fluent 2 视觉体系与 UI 框架。
+* **[CatVodSpider / TVBox 协议生态](https://github.com/)**：开放影视爬虫与数据解析协议生态，提供强大的多源检索与视频解析规范。
+* **[hls.js](https://github.com/video-dev/hls.js/)**：原生流媒体分片传输与 HLS / m3u8 离线解码引擎。
+* **[Fastify](https://fastify.dev/) / [Node.js](https://nodejs.org/)**：高性能异步爬虫调度与微服务通信中间件。
+* **[Newtonsoft.Json](https://www.newtonsoft.com/json)**：.NET 业界标准的 JSON 序列化与数据处理库。
 
 ---
 
