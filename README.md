@@ -105,7 +105,7 @@ graph TD
 
 | 微信赞赏 (WeChat Pay) | 支付宝收款 (Alipay) |
 | :---: | :---: |
-| ［微信赞赏码］ | ［支付宝收款码］ |
+| <img src="docs/wechat_pay.jpg" width="220" alt="微信赞赏码" /> | <img src="docs/alipay.jpg" width="220" alt="支付宝收款码" /> |
 
 > 你的支持可以让我更好地持续维护与开发本项目，不断完善多源生态与极致的播放体验，总之非常感谢大家的支持与喜爱！❤️
 
