@@ -62,7 +62,6 @@
 
 * 📢 **Telegram 官方频道**：[https://t.me/CatPawPlayer](https://t.me/CatPawPlayer)
 * 💬 **Telegram 交流群组**：[https://t.me/CatPawPlayerChat](https://t.me/CatPawPlayerChat)
-* 🐧 **客服 / 反馈 QQ**：`896367449`
 
 ---
 
