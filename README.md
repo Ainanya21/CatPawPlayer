@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🐾 CatPawPlayer (AinanPlayer)
+# <img src="docs/images/logo.png" width="36" height="36" style="vertical-align: -6px;" alt="Logo" /> CatPawPlayer (AinanPlayer)
 ### 现代化 Windows 11 影视聚合与 4K 超清硬件加速播放平台
 
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078D6?style=flat-square&logo=windows)](https://github.com/Ainanya21/CatPawPlayer)
@@ -10,47 +10,47 @@
 [![Telegram Group](https://img.shields.io/badge/Telegram-Group-2CA5E0?style=flat-square&logo=telegram)](https://t.me/CatPawPlayerChat)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[**下载体验**](#-下载与安装) • [**界面预览**](#-界面预览) • [**核心功能**](#-核心亮点) • [**配置中心与网盘**](#-配置中心与网盘授权) • [**交流反馈**](#-交流与社区反馈) • [**免责声明**](#-免责声明) • [**支持项目**](#-支持项目) • [**来源与许可**](#-来源与许可) • [**本地编译构建**](#-本地编译与开发)
+[**下载体验**](#下载与安装) • [**界面预览**](#界面预览) • [**核心亮点**](#核心亮点) • [**配置中心**](#配置中心与网盘授权) • [**社区交流**](#交流与社区反馈) • [**免责声明**](#免责声明) • [**支持项目**](#支持项目) • [**来源与许可**](#来源与许可) • [**本地构建**](#本地编译与开发)
 
 </div>
 
 ---
 
-## 📸 界面预览
+## 界面预览
 
 <div align="center">
 
-### 📺 首页精选推荐与海报流 (Apple TV 级丝滑交互动效)
+### 首页精选推荐与海报流 (Apple TV 级丝滑交互动效)
 ![首页推荐](docs/images/screenshot_home.png)
 
 <br/>
 
-### 🎬 影视详情与多线路极速选集 (支持 Yaozhi-MPV 硬件加速与一键切源)
+### 影视详情与多线路极速选集 (支持 Yaozhi-MPV 硬件加速与一键切源)
 ![影视详情](docs/images/screenshot_detail.png)
 
 </div>
 
 ---
 
-## 🌟 核心亮点
+## 核心亮点
 
-* **💎 原生 WinUI 3 + Fluent 2 视觉体系**：基于微软最新 Windows App SDK 1.6 与 Mica / Acrylic 材质构建，支持全功能浅色/深色/跟随系统的主题实时无缝切换。
-* **🚀 多引擎万能爬虫架构（Universal Multi-Engine Spider）**：
+* **原生 WinUI 3 + Fluent 2 视觉体系**：基于微软最新 Windows App SDK 1.6 与 Mica / Acrylic 材质构建，支持全功能浅色/深色/跟随系统的主题实时无缝切换。
+* **多引擎万能爬虫架构（Universal Multi-Engine Spider）**：
   * 支持 **王二小牛娃猫源**（`9988`）、**豆源**（`2333`）、以及统一控制网关（`9980`）。
   * 完美支持 `.js.md5`、Base64 加密订阅、标准 TVBox JSON 仓库以及单 CMS 接口的动态自动识别、热下载与多端口隔离加载。
-* **🎬 双播放内核与 4K HDR 硬件加速**：
+* **双播放内核与 4K HDR 硬件加速**：
   * **Yaozhi-MPV 极速播放**：支持调用外部 MPV 高性能解码器，享受 4K UHD、HEVC/H.265、杜比视界（Dolby Vision）及 120FPS 极限硬件加速。
   * **内置离线 HLS 原生播放引擎**：内嵌完整的离线 `hls.min.js`，零外部 CDN 依赖，启动秒开，断网或离线环境下无障碍播放。
-* **🛠️ 内嵌原生配置中心**：
+* **内嵌原生配置中心**：
   * 深度集成扫码与授权控制台，无需跳出浏览器，直接在应用内完成夸克、UC、阿里、百度、115 等网盘账号的扫码授权与转存配置。
-* **📊 智能媒体流元数据实时探针**：
+* **智能媒体流元数据实时探针**：
   * 自动侦测媒体流的分辨率、视频编码、音频编码、网络延迟以及多码率分片轨道，在播放详情页即时呈现 4K / 1080P / HDR / 杜比全景声 徽章。
-* **🔍 全网聚合搜索与多维分类筛选**：
+* **全网聚合搜索与多维分类筛选**：
   * 支持跨源异步并发聚合搜索与多级分类展开筛选，一键检索全网优质资源。
 
 ---
 
-## 📦 下载与安装
+## 下载与安装
 
 进入 [**Releases 发布页面**](https://github.com/Ainanya21/CatPawPlayer/releases) 下载最新安装包：
 
@@ -61,27 +61,27 @@
 
 ---
 
-## 🛠️ 配置中心与网盘授权
+## 配置中心与网盘授权
 
 为了畅快播放网盘 4K 原画资源（如至臻、玩偶、指南等聚合源），请先完成网盘授权：
 
 1. 打开猫爪播放器，点击左侧导航栏 **「全量分类」**。
-2. 站点下拉框选择 **「🛠️ 配置中心」**（或点击网盘片源详情页上的授权引导按钮）。
+2. 站点下拉框选择 **「配置中心」**（或点击网盘片源详情页上的授权引导按钮）。
 3. 使用手机对应网盘 APP（夸克 / UC / 阿里云盘 / 百度网盘 / 115）扫码登录。
 4. 授权成功后，爬虫后端将在播放 4K 资源时自动进行秒级转存并换取高速原画播放直链！
 
 ---
 
-## 💬 交流与社区反馈
+## 交流与社区反馈
 
 欢迎加入官方社区交流群与频道，获取最新源更新资讯与版本通知：
 
-* 📢 **Telegram 官方频道**：[https://t.me/CatPawPlayer](https://t.me/CatPawPlayer)
-* 💬 **Telegram 交流群组**：[https://t.me/CatPawPlayerChat](https://t.me/CatPawPlayerChat)
+* **Telegram 官方频道**：[https://t.me/CatPawPlayer](https://t.me/CatPawPlayer)
+* **Telegram 交流群组**：[https://t.me/CatPawPlayerChat](https://t.me/CatPawPlayerChat)
 
 ---
 
-## 💻 播放器设置（MPV 硬件加速）
+## 播放器设置（MPV 硬件加速）
 
 猫爪播放器支持自由选择内置播放器或外部 MPV 播放器：
 
@@ -93,7 +93,7 @@
 
 ---
 
-## 🏗️ 架构与技术栈
+## 架构与技术栈
 
 ```mermaid
 graph TD
@@ -115,7 +115,7 @@ graph TD
 
 ---
 
-## 💖 支持项目
+## 支持项目
 
 如果 **CatPawPlayer (AinanPlayer)** 有幸改善了你的观影与播放体验，非常欢迎在能力范围内支持开发者。
 
@@ -127,7 +127,7 @@ graph TD
 
 ---
 
-## 📜 来源与许可
+## 来源与许可
 
 本项目参考或集成了以下优秀开源项目及社区成果，在此向所有开源创作者与社区贡献者致以崇高的敬意与感谢：
 
@@ -140,7 +140,7 @@ graph TD
 
 ---
 
-## 🔨 本地编译与开发
+## 本地编译与开发
 
 ### 环境要求
 
@@ -168,7 +168,7 @@ dotnet publish CatPawPlayer.Installer/CatPawPlayer.Installer.csproj -c Release -
 
 ---
 
-## ⚖️ 免责声明 (Disclaimer)
+## 免责声明
 
 1. **纯本地工具属性**：**CatPawPlayer (AinanPlayer)** 仅为一款基于 WinUI 3 与开源多媒体内核构建的本地音视频播放工具与接口解析客户端，软件本体**不提供、不存储、不发布、不传播**任何音频、视频、字幕或图片资源，亦不架设任何媒体流服务器。
 2. **数据源免责**：软件内所有展示的订阅源、站点规则、网盘转存服务及视频播放链接均由使用者**自行配置、自定义导入或来源于第三方公开网络接口**。开发者不对任何第三方接口与内容的合法性、真实性、准确性、有效性或可用性承担任何直接或连带法律责任。
@@ -177,6 +177,6 @@ dotnet publish CatPawPlayer.Installer/CatPawPlayer.Installer.csproj -c Release -
 
 ---
 
-## 📄 开源许可
+## 开源许可
 
 本项目基于 [MIT 许可证](LICENSE) 开源。
