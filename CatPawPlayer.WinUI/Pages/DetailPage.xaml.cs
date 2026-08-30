@@ -318,10 +318,17 @@ public sealed partial class DetailPage : Page
         // 2. Build cleaned working copy for episode extraction by removing interfering noise
         string cleanWork = rawName;
 
-        // CRITICAL: Strip file sizes FIRST while decimal points (e.g. 1.1GB, 2.7GB) are intact
+        // CRITICAL A: Strip file sizes FIRST while decimal points (e.g. 1.1GB, 2.7GB) are intact
         cleanWork = System.Text.RegularExpressions.Regex.Replace(cleanWork, @"(?i)(?:\[|\(|\s|^|-|_)?\d+(?:\.\d+)?\s*(?:GB|MB|G|M|GiB|MiB)(?:\]|\)|\s|-|_|$)?", " ");
 
-        // Strip common resolutions, codecs, fps and media specs
+        // CRITICAL B: Strip collection total count tags like "全24集", "共30集", "全36话", "更新至20集", "全集"
+        cleanWork = System.Text.RegularExpressions.Regex.Replace(cleanWork, @"(?i)(?:全|共|更新至)\s*\d+\s*(?:集|话)", " ");
+        cleanWork = cleanWork.Replace("全集", " ");
+
+        // CRITICAL C: Strip Season indicators like "第4季", "第四季", "第一季", "S01", "Season 1"
+        cleanWork = System.Text.RegularExpressions.Regex.Replace(cleanWork, @"(?i)(?:第\s*[一二三四五六七八九十\d]+\s*季|Season\s*\d+|S\d+)", " ");
+
+        // CRITICAL D: Strip common resolutions, codecs, fps and media specs
         cleanWork = System.Text.RegularExpressions.Regex.Replace(cleanWork, @"(?i)(?:4K|2160P|1080P|720P|540P|480P|60FPS|120FPS|10BIT|8BIT|HDR\d*|DOLBY\s*VISION|DV|H\.?265|H\.?264|HEVC|AVC|AV1|AAC|DDP\d*(?:\.\d+)?|REMUX|WEB-DL|BLURAY|HDTC|HD|SDR|高码率)", " ");
 
         // Strip video extensions
@@ -329,6 +336,13 @@ public sealed partial class DetailPage : Page
 
         // Strip release years (e.g. 1990 - 2030)
         cleanWork = System.Text.RegularExpressions.Regex.Replace(cleanWork, @"\b(19\d\d|20[0-3]\d)\b", " ");
+
+        // Strip trailing bracketed folder annotations like 【爱情公寓第四季 (2014) 4K 全24集】
+        var bracketFolderMatch = System.Text.RegularExpressions.Regex.Match(cleanWork, @"^(.+?)\s*【(.*?)】\s*$");
+        if (bracketFolderMatch.Success && bracketFolderMatch.Groups[1].Value.Trim().Length > 0)
+        {
+            cleanWork = bracketFolderMatch.Groups[1].Value;
+        }
 
         // Convert brackets, punctuation and symbols to spaces
         cleanWork = System.Text.RegularExpressions.Regex.Replace(cleanWork, @"[\[\]\(\)\{\}【】_\-\.]", " ");
