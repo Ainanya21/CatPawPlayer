@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🐾 猫爪播放器 (CatPawPlayer)
+# 🐾 CatPawPlayer (AinanPlayer)
 ### 现代化 Windows 11 影视聚合与 4K 超清硬件加速播放平台
 
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078D6?style=flat-square&logo=windows)](https://github.com/Ainanya21/CatPawPlayer)
@@ -117,7 +117,7 @@ graph TD
 
 ## 💖 支持项目
 
-如果 **CatPawPlayer (猫爪播放器)** 有幸改善了你的观影与播放体验，非常欢迎在能力范围内支持开发者。
+如果 **CatPawPlayer (AinanPlayer)** 有幸改善了你的观影与播放体验，非常欢迎在能力范围内支持开发者。
 
 | 微信赞赏 (WeChat Pay) | 支付宝收款 (Alipay) |
 | :---: | :---: |
@@ -170,7 +170,7 @@ dotnet publish CatPawPlayer.Installer/CatPawPlayer.Installer.csproj -c Release -
 
 ## ⚖️ 免责声明 (Disclaimer)
 
-1. **纯本地工具属性**：**AinanPlayer (CatPawPlayer)** 仅为一款基于 WinUI 3 与开源多媒体内核构建的本地音视频播放工具与接口解析客户端，软件本体**不提供、不存储、不发布、不传播**任何音频、视频、字幕或图片资源，亦不架设任何媒体流服务器。
+1. **纯本地工具属性**：**CatPawPlayer (AinanPlayer)** 仅为一款基于 WinUI 3 与开源多媒体内核构建的本地音视频播放工具与接口解析客户端，软件本体**不提供、不存储、不发布、不传播**任何音频、视频、字幕或图片资源，亦不架设任何媒体流服务器。
 2. **数据源免责**：软件内所有展示的订阅源、站点规则、网盘转存服务及视频播放链接均由使用者**自行配置、自定义导入或来源于第三方公开网络接口**。开发者不对任何第三方接口与内容的合法性、真实性、准确性、有效性或可用性承担任何直接或连带法律责任。
 3. **合法合规使用**：本项目仅供计算机技术研究、编程学习与多媒体解码交流使用。请广大使用者严格遵守所在国家与地区的法律法规，尊重原创与知识产权。严禁将本软件用于任何形式的商业盈利、非法传播或侵权行为。
 4. **版权保护**：若任何第三方机构或个人认为用户自行导入的第三方源侵犯了其合法权益，请依法向对应网络内容的源服务提供商或接口维护者提出维权主张。
