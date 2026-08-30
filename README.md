@@ -1,6 +1,6 @@
 <div align="center">
 
-# <img src="docs/images/logo.png" width="36" height="36" style="vertical-align: -6px;" alt="Logo" /> CatPawPlayer (AinanPlayer)
+# <img src="docs/images/logo.png" width="38" height="38" align="absmiddle" alt="Logo" /> CatPawPlayer (AinanPlayer)
 ### 现代化 Windows 11 影视聚合与 4K 超清硬件加速播放平台
 
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078D6?style=flat-square&logo=windows)](https://github.com/Ainanya21/CatPawPlayer)
