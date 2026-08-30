@@ -134,8 +134,21 @@ public sealed partial class DetailPage : Page
             var episodes = ParseEpisodes(urlStr, _vod.VodName);
             if (episodes.Count == 0) continue;
 
-            var wrapPanel = new VariableSizedWrapGrid { Orientation = Orientation.Horizontal, MaximumRowsOrColumns = 100 };
-            var scrollViewer = new ScrollViewer { Content = wrapPanel, MaxHeight = 260 };
+            var wrapPanel = new VariableSizedWrapGrid
+            {
+                Orientation = Orientation.Horizontal,
+                ItemWidth = 138,
+                ItemHeight = 44,
+                HorizontalAlignment = HorizontalAlignment.Stretch,
+            };
+            var scrollViewer = new ScrollViewer
+            {
+                Content = wrapPanel,
+                MaxHeight = 280,
+                HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled,
+                VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
+                HorizontalAlignment = HorizontalAlignment.Stretch,
+            };
 
             for (int epIdx = 0; epIdx < episodes.Count; epIdx++)
             {
@@ -144,9 +157,11 @@ public sealed partial class DetailPage : Page
                 var btn = new Button
                 {
                     Content = epCopy.Name,
-                    Margin = new Thickness(4),
-                    MinWidth = 100,
-                    Padding = new Thickness(10, 6, 10, 6),
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    VerticalAlignment = VerticalAlignment.Stretch,
+                    Margin = new Thickness(3),
+                    Padding = new Thickness(4, 2, 4, 2),
+                    FontSize = 12.5,
                     Tag = epCopy,
                 };
                 btn.Click += async (_, _) =>
@@ -262,6 +277,8 @@ public sealed partial class DetailPage : Page
             {
                 Header = $"{sourceName} ({episodes.Count})",
                 Content = scrollViewer,
+                Margin = new Thickness(0),
+                Padding = new Thickness(0, 8, 0, 0),
             };
             SourcePivot.Items.Add(pivotItem);
         }
