@@ -64,7 +64,7 @@
 
 * **操作系统**：Windows 10（1809 / 17763 及以上）或 Windows 11（64位）
 * **依赖环境**：安装包已自包含全部运行依赖，解压或安装后即开即用（无需额外安装运行库）
-* **外部播放器（可选）**：如需开启 MPV 极速硬件加速，可搭配 [mpv / mpv-lazy](https://mpv.io/) 使用
+* **外部播放器（可选）**：如需开启 MPV 极速硬件加速，可搭配 [mpv-Yaozhi](https://github.com/Yaozhil/mpv-Yaozhi) 使用
 
 ---
 
@@ -127,7 +127,7 @@
 
 本项目参考或集成了以下优秀开源项目及社区成果，在此向所有开源创作者与社区贡献者致以崇高的敬意与感谢：
 
-* **[mpv](https://mpv.io/) / [mpv-Yaozhi](https://github.com/)**：高性能跨平台视频渲染器与硬件加速解码核心，为本项目提供极致的 4K HDR、杜比视界及 120FPS 观影支持。
+* **[mpv](https://mpv.io/) / [mpv-Yaozhi](https://github.com/Yaozhil/mpv-Yaozhi)**：高性能跨平台视频渲染器与硬件加速解码核心，为本项目提供极致的 4K HDR、杜比视界及 120FPS 观影支持。
 * **[WinUI 3](https://github.com/microsoft/WindowsAppSDK) / [Windows App SDK](https://learn.microsoft.com/windows/apps/windows-app-sdk/)**：微软现代 Windows 原生桌面 Fluent 2 视觉体系与 UI 框架。
 * **[CatVodSpider / TVBox 协议生态](https://github.com/)**：开放影视爬虫与数据解析协议生态，提供强大的多源检索与视频解析规范。
 * **[hls.js](https://github.com/video-dev/hls.js/)**：原生流媒体分片传输与 HLS / m3u8 离线解码引擎。
