@@ -103,28 +103,6 @@
 
 ---
 
-## 架构与技术栈
-
-```mermaid
-graph TD
-    A[CatPawPlayer WinUI 3 前端] -->|HTTP / JSON| B[Multi-Engine Spider Gateway 9980]
-    B -->|动态路由分发| C1[王二小放牛娃猫源 9988]
-    B -->|动态路由分发| C2[豆源引擎 2333]
-    B -->|动态路由分发| C3[动态订阅端口 3100+]
-    C1 -->|转存 & 直链解析| D[夸克 / UC / 阿里 / 百度 / 115]
-    A -->|流媒体数据 & Headers| E1[内置离线 HLS 播放器]
-    A -->|命令行参数 & IPC| E2[外部 Yaozhi-MPV 硬件加速]
-```
-
-### 技术架构清单
-
-* **UI 前端**：.NET 8.0, C#, WinUI 3, Windows App SDK 1.6, XAML
-* **爬虫服务端**：Node.js Runtime, Fastify, CatVod Spider API, Multi-Port Engine Host
-* **流媒体解析**：内置 HLS.js 离线引擎 + StreamMetadataService 深度嗅探
-* **安装程序**：.NET 8 WinForms 自定义图形化解压与快捷方式安装向导
-
----
-
 ## 支持项目
 
 如果 **CatPawPlayer (AinanPlayer)** 有幸改善了你的观影与播放体验，非常欢迎在能力范围内支持开发者。
