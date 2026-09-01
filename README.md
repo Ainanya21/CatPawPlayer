@@ -10,7 +10,7 @@
 [![Telegram Group](https://img.shields.io/badge/Telegram-Group-2CA5E0?style=flat-square&logo=telegram)](https://t.me/CatPawPlayerChat)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[**下载体验**](#下载与安装) • [**使用指南**](docs/USER_GUIDE.md) • [**界面预览**](#界面预览) • [**核心亮点**](#核心亮点) • [**配置中心**](#配置中心与网盘授权) • [**社区交流**](#交流与社区反馈) • [**免责声明**](#免责声明) • [**支持项目**](#支持项目) • [**来源与许可**](#来源与许可) • [**本地构建**](#本地编译与开发)
+[**下载体验**](#下载与安装) • [**使用指南**](docs/USER_GUIDE.md) • [**界面预览**](#界面预览) • [**核心亮点**](#核心亮点) • [**配置中心**](#配置中心与网盘授权) • [**社区交流**](#交流与社区反馈) • [**免责声明**](#免责声明) • [**支持项目**](#支持项目) • [**来源与许可**](#来源与许可)
 
 </div>
 
@@ -27,6 +27,16 @@
 
 ### 影视详情与多线路极速选集 (支持 Yaozhi-MPV 硬件加速与一键切源)
 ![影视详情](docs/images/screenshot_detail.png)
+
+<br/>
+
+### 外观与个性化主题配置 (深浅主题无缝切换与强调色拾色器)
+![外观设置](docs/images/screenshot_settings.png)
+
+<br/>
+
+### 4K 60FPS 极限硬件加速与弹幕播放 (Yaozhi-MPV 硬件解码/杜比音频/实时码率)
+![极速播放](docs/images/screenshot_player.png)
 
 </div>
 
@@ -137,34 +147,6 @@ graph TD
 * **[hls.js](https://github.com/video-dev/hls.js/)**：原生流媒体分片传输与 HLS / m3u8 离线解码引擎。
 * **[Fastify](https://fastify.dev/) / [Node.js](https://nodejs.org/)**：高性能异步爬虫调度与微服务通信中间件。
 * **[Newtonsoft.Json](https://www.newtonsoft.com/json)**：.NET 业界标准的 JSON 序列化与数据处理库。
-
----
-
-## 本地编译与开发
-
-### 环境要求
-
-* Windows 10 (19041+) 或 Windows 11
-* [Visual Studio 2022](https://visualstudio.microsoft.com/)（勾选「.NET 桌面开发」与「Windows 应用程序开发」工作负载）
-* [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-* [Node.js](https://nodejs.org/) (v18.0 或更高版本)
-
-### 克隆与编译
-
-```bash
-# 1. 克隆代码仓库
-git clone https://github.com/Ainanya21/CatPawPlayer.git
-cd CatPawPlayer
-
-# 2. 编译主程序 (Release)
-dotnet build CatPawPlayer.WinUI/CatPawPlayer.WinUI.csproj -c Release
-
-# 3. 打包便携版与安装程序
-node create_packages.js
-dotnet publish CatPawPlayer.Installer/CatPawPlayer.Installer.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o "./dist"
-```
-
-编译生成的安装程序和便携压缩包将保存在 `dist/` 目录下。
 
 ---
 
