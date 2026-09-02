@@ -3,14 +3,14 @@
 # <img src="docs/images/logo.png" width="38" height="38" align="absmiddle" alt="Logo" /> CatPawPlayer (AinanPlayer)
 ### 现代化 Windows 11 影视聚合与 4K 超清硬件加速播放平台
 
-**简体中文** | [English](README.md)
-
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-0078D6?style=flat-square&logo=windows)](https://github.com/Ainanya21/CatPawPlayer)
 [![Framework](https://img.shields.io/badge/UI-WinUI%203%20%2F%20Windows%20App%20SDK%201.6-8860D0?style=flat-square&logo=microsoft)](https://github.com/Ainanya21/CatPawPlayer)
 [![.NET](https://img.shields.io/badge/.NET-8.0%20LTS-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com/)
 [![Telegram Channel](https://img.shields.io/badge/Telegram-Channel-2CA5E0?style=flat-square&logo=telegram)](https://t.me/CatPawPlayer)
 [![Telegram Group](https://img.shields.io/badge/Telegram-Group-2CA5E0?style=flat-square&logo=telegram)](https://t.me/CatPawPlayerChat)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+
+🌐 **[English](README.md)** | **[简体中文](README_zh.md)**
 
 [**下载体验**](#下载与安装) • [**使用指南**](docs/USER_GUIDE.md) • [**界面预览**](#界面预览) • [**核心亮点**](#核心亮点) • [**环境要求**](#运行环境要求) • [**配置中心**](#配置中心与网盘授权) • [**社区交流**](#交流与社区反馈) • [**免责声明**](#免责声明) • [**支持项目**](#支持项目) • [**来源与许可**](#来源与许可)
 
